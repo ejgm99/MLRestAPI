@@ -18,5 +18,6 @@ from django.urls import include,path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('nlp/',include('nlp.urls'))
+    path('nlp/',include('apps.nlp.urls')),
+    path('deepmoji/', include('apps.deepmoji.urls'))
 ]
