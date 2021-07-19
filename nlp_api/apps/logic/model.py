@@ -1,4 +1,5 @@
 import time
+import json
 
 class NLP_Model():
     def __init__(self,initialized = False,model_path = None):
@@ -13,7 +14,7 @@ class NLP_Model():
             print("Duration",duration);
         else:
             start = time.perf_counter()
-            print(function)
+            print("Performing",self.operation)
             out = function(doc)
             duration = time.perf_counter()-start
             print("Duration",duration);
@@ -22,13 +23,10 @@ class NLP_Model():
         print("This is not yet defined")
     def predict(self):
         self.operation = "predicting"
-        print("predicting")
     def tokenize(self):
         self.operation = "tokenizing"
-        print("tokenizing")
     def initialize(self):
         self.operation = "initializing"
-        print("initializing")
     def to_json(self):
         self.operation = "to_json"
     def l_predict(self):
@@ -38,18 +36,56 @@ class NLP_Model():
     def l_initialize(self):
         return self.LogFunctionExecutionTime(self.initialize)
 
-class SampleChild(NLP_Model):
-    def __init__(self, name,initialized):
-        super().__init__(name,initialized);
-    def predict(self, querys, log=False):
-        super().predict()
-    def initialize(self,query, log = False):
+
+class ArticleParser(NLP_Model):
+    #this is a skeleton class that is meant to serve as a framework for
+    #ArticleParsing and everysubject that goes into it.
+    def __init__(self, name = "Article Parser"):
+        super().__init__()
+        self.name = name
+        self.auxilary_models_initialized = False
+        self.parsers_initialized = False
+    def initialize(self, log = False, parser = None):
         super().initialize()
+        #for this class, this will be where the
+        #auxilary models will be initalized and used to define
+        #the array of trackers used for document classification
+        self.initialied = True
+        self.auxilary_models_initialized = True
+        self.parsers_initialized = True
     def tokenize(self,query, log = False):
+        #query must be a list of docs (even if just one is being used)
+        #so that it handles well with GET requests
         super().tokenize()
-    def l_predict(self,query):
-        return self.LogFunctionExecutionTime(query,self.predict)
-    def l_tokenize(self,query):
-        return self.LogFunctionExecutionTime(query,self.tokenize)
-    def l_initialize(self,query):
-        return self.LogFunctionExecutionTime(query,self.initialize)
+        print(self.auxilary_models_initialized,self.parsers_initialized)
+        if self.auxilary_models_initialized and self.parsers_initialized:
+            print("Everything initialized, parsing")
+            for count, parser in enumerate(self.parsers):
+                print("count")
+                parser.ScoreDoc(query[count])
+    def predict(self,log=False):
+        super().predict()
+        #Here is where we have the tracker object
+        #come up with a score for each token that
+        #it has found
+        for parser in self.parsers:
+            parser.getOverallSentimentForEachToken()
+    def to_json(self):
+        return json.dumps([parser.to_json() for parser in self.parsers])
+
+
+# class SampleChild(NLP_Model):
+#     def __init__(self, name,initialized):
+#         super().__init__(name,initialized);
+#     def predict(self, querys, log=False):
+#         super().predict()
+#     def initialize(self,query, log = False):
+#         super().initialize()
+#     def tokenize(self,query, log = False):
+#         super().tokenize()
+#     def l_predict(self,query):
+#         return self.LogFunctionExecutionTime(query,self.predict)
+#     def l_tokenize(self,query):
+#         return self.LogFunctionExecutionTime(query,self.tokenize)
+#     def l_initialize(self,query):
+#         return self.LogFunctionExecutionTime(query,self.initialize)

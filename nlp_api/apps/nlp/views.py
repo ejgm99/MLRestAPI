@@ -10,12 +10,12 @@ from apps.deepmoji import index as deepmoji
 from .spacy import NER_Spacy
 from apps.logic.getHandler import getPhrases
 from apps.logic.getHandler import runModel
-from apps.sentiment_tracker.index import SentimentTrackerAPI
+from apps.sentiment_tracker.index import InitialArticleParser
 
 models = {
     "deepmoji": deepmoji.DeepMoji("deepmoji",False),
     "ner": NER_Spacy(),
-    "st": SentimentTrackerAPI()
+    "st": InitialArticleParser()
 }
 
 
