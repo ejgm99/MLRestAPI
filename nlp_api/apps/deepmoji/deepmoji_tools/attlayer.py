@@ -5,7 +5,7 @@ import sys
 from os.path import dirname
 sys.path.append(dirname(dirname(__file__)))
 from keras import initializers
-from keras.engine import InputSpec, Layer
+from tensorflow.keras.layers import InputSpec, Layer
 from keras import backend as K
 
 
