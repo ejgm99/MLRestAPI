@@ -3,7 +3,7 @@
 
 from __future__ import print_function, division
 
-from keras.models import Model, Sequential
+from tensorflow.keras.models import Model, Sequential
 from keras.layers.merge import concatenate
 from keras.layers import Input, Bidirectional, Embedding, Dense, Dropout, SpatialDropout1D, LSTM, Activation
 from keras.regularizers import L1L2
