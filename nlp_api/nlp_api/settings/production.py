@@ -11,7 +11,7 @@ SECRET_KEY = ''.join(secrets.choice(chars) for i in range(length))
 
 
 # SECURITY WARNING: update this when you have the production host
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://nlp-env.eba-m5vuny8c.us-west-1.elasticbeanstalk.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','http://ec2-3-136-18-160.us-east-2.compute.amazonaws.com/']
 
 DATABASES = {
     'default': {
