@@ -1,6 +1,6 @@
 from nlp_api.settings.common import *
 import os
-DEBUG = False
+DEBUG = True
 
 import secrets
 
