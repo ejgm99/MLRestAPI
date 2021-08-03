@@ -6,7 +6,7 @@ from os.path import dirname
 sys.path.append(dirname(dirname(__file__)))
 from tensorflow.keras import initializers
 from tensorflow.keras.layers import InputSpec, Layer
-from keras import backend as K
+from tensorflow.keras import backend as K
 
 
 class AttentionWeightedAverage(Layer):
