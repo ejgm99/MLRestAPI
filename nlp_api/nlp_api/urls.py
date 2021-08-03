@@ -16,8 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include,path
 
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Hello, world.")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nlp/',include('apps.nlp.urls')),
-    path('deepmoji/', include('apps.deepmoji.urls'))
+    path('deepmoji/', include('apps.deepmoji.urls')),
+    path('',index)
 ]
