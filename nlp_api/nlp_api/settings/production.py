@@ -9,7 +9,6 @@ chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
 
 SECRET_KEY = ''.join(secrets.choice(chars) for i in range(length))
 
-print(secret_key)
 
 # SECURITY WARNING: update this when you have the production host
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://nlp-env.eba-m5vuny8c.us-west-1.elasticbeanstalk.com/']
