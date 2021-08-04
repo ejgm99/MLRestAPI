@@ -1,0 +1,6 @@
+[submodule "nlp_api/apps/nlp_core/DeepMoji"]
+	path = nlp_api/apps/nlp_core/DeepMoji
+	url = https://github.com/ejgm99/DeepMoji_Python3.git
+[submodule "nlp_api/apps/nlp_core/SentimentTracker"]
+	path = nlp_api/apps/nlp_core/SentimentTracker
+	url = https://github.com/ejgm99/SentimentTracker.git
