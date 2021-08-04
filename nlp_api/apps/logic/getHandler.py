@@ -10,7 +10,7 @@ def getPhrases(request):
     return phrases
 
 def runModel(model,phrases,log_performance = True,test = False):
-    print("IS THE MODEL INITIALIZED??????   ",model.initialized)    
+    print("-------         IS THE MODEL INITIALIZED:    ",model.initialized)    
     if not (model.initialized):
         model.initialize()
     if (log_performance):

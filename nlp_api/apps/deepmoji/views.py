@@ -6,9 +6,9 @@ from . import index
 from apps.logic.getHandler import getPhrases
 from apps.logic.getHandler import runModel
 
-models = {
-    "deepmoji": index.DeepMoji("deepmoji",False)
-}
+# models = {
+#     "deepmoji": index.DeepMoji("deepmoji",False)
+# }
 
 # Create your views here.
 def classTests(request):

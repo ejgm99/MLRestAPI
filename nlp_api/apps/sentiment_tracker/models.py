@@ -83,8 +83,6 @@ class InitialParser(Parser):
         self.d.predict()
         return self.d.results[0]
 
-import numpy as np
-
 #this class is meant to track nouns or verbs
 #that contribute to the overall emotion state
 #of a person. Will probably only ever consist
