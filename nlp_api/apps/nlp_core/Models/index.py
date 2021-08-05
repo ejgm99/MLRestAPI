@@ -11,13 +11,10 @@ class NLP_Model():
             start = time.perf_counter()
             out = function()
             duration = time.perf_counter()-start
-            print("Duration",duration);
         else:
             start = time.perf_counter()
-            print("Performing",self.operation)
             out = function(doc)
             duration = time.perf_counter()-start
-            print("Duration",duration);
         return out
     def ThrowNotYetDefined(self):
         print("This is not yet defined")
@@ -57,11 +54,8 @@ class ArticleParser(NLP_Model):
         #query must be a list of docs (even if just one is being used)
         #so that it handles well with GET requests
         super().tokenize()
-        print(self.auxilary_models_initialized,self.parsers_initialized)
         if self.auxilary_models_initialized and self.parsers_initialized:
-            print("Everything initialized, parsing")
             for count, parser in enumerate(self.parsers):
-                print("count")
                 parser.ScoreDoc(query[count])
     def predict(self,log=False):
         super().predict()

@@ -20,24 +20,20 @@ class DeepMoji(NLP_Model):
         self.maxlen = 30;
     def predict(self):
         super().predict()
-        print("Making a prediction");
         self.results = self.model.predict(self.tokenized)
     def initialize(self):
-        super().initialize()
-        print("Initializing once...")
+        super().initialize();
         self.model = deepmoji_emojis(maxlen, PRETRAINED_PATH)
         with open(VOCAB_PATH, 'r') as f:
             vocabulary = json.load(f)
         self.st = SentenceTokenizer(vocabulary, maxlen)
         self.initialized = True
     def tokenize(self,query):
-        print("Tokenizing object")
         super().tokenize()
         self.phrases = query
         self.tokenized, _, _ = self.st.tokenize_sentences(query)
         return self.tokenized
     def to_json(self):
-        print("Turning output into JSON")
         super().to_json()
         confidence_json = {}
         phrases_json = {}
