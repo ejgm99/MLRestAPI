@@ -15,12 +15,13 @@ print("Importing Article parser:")
 from apps.nlp_core.SentimentTracker.index import InitialArticleParser
 
 print("importing DeepMoji: ")
-from apps.nlp_core.Models.deepmoji import DeepMoji
+from apps.nlp_core.Models.deepmoji import DeepMoji,DeepMojiTokenizer
 
 models = {
     "deepmoji": DeepMoji("deepmoji",False),
     "ner": NER_Spacy(),
-    "st": InitialArticleParser()
+    "st": InitialArticleParser(),
+    "tokenizer": DeepMojiTokenizer()
 }
 
 # Create your views here.
