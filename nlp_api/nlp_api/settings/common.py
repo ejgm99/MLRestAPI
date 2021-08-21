@@ -52,7 +52,9 @@ ROOT_URLCONF = 'nlp_api.urls'
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8081", "http://localhost:8081",
         "http://127.0.0.1:80", "http://localhost:80",
-        "http://127.0.0.1", "http://localhost"
+        "http://127.0.0.1", "http://localhost",
+        'http://ec2-18-218-16-63.us-east-2.compute.amazonaws.com/',
+        'http://ejgml.com'
 ]
 
 
